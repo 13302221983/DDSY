@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>id</key>
+		<string>1</string>
+		<key>title</key>
+		<string>我要加油</string>
+		<key>bkgimage</key>
+		<string></string>
+		<key>icon</key>
+		<string></string>
+		<key>backgroundColor</key>
+		<string>0xF890FF</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>2</string>
+		<key>title</key>
+		<string>我的订单</string>
+		<key>bkgimage</key>
+		<string></string>
+		<key>icon</key>
+		<string></string>
+		<key>backgroundColor</key>
+		<string>0x70FF97</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>3</string>
+		<key>title</key>
+		<string>我的帐户</string>
+		<key>bkgimage</key>
+		<string></string>
+		<key>icon</key>
+		<string></string>
+		<key>backgroundColor</key>
+		<string>0xFAA93B</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>4</string>
+		<key>title</key>
+		<string>我的信息</string>
+		<key>bkgimage</key>
+		<string></string>
+		<key>icon</key>
+		<string></string>
+		<key>backgroundColor</key>
+		<string>0x5FD3FE</string>
+	</dict>
+</array>
+</plist>
