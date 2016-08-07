@@ -11,6 +11,7 @@
 #import "UIHomeViewController.h"
 #import "UIFindPasswordViewController.h"
 #import "MdStyle.h"
+#import "Ints.h"
 
 @interface UILoginViewController ()
 
@@ -95,6 +96,7 @@
     
     _accountTextField = [[UITextField alloc] init];
     _accountTextField.placeholder = @"帐号";
+    _accountTextField.text = @"gzOper";
     _accountTextField.layer.borderWidth = 1;
     _accountTextField.layer.borderColor = [UIColor grayColor].CGColor;
     _accountTextField.leftView = accountLogoView;
@@ -123,6 +125,7 @@
     
     _passwordTextField = [[UITextField alloc] init];
     _passwordTextField.placeholder = @"密码";
+    _passwordTextField.text = @"QAZxsw123";
     _passwordTextField.layer.borderWidth = 1;
     _passwordTextField.layer.borderColor = [UIColor grayColor].CGColor;
     _passwordTextField.leftView = passwordLogoView;
@@ -162,6 +165,7 @@
 
 - (void)loginEvent:(id)sender
 {
+    [Ints loginAccount:_accountTextField.text password:_passwordTextField.text block:nil];
     UIHomeViewController *homeView = [[UIHomeViewController alloc] init];
     UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:homeView];
     [self presentViewController:navi animated:YES completion:nil];

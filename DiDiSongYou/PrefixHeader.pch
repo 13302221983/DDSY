@@ -1,0 +1,35 @@
+//
+//  PrefixHeader.pch
+//  DiDiSongYou
+//
+//  Created by McKee on 16/8/6.
+//  Copyright © 2016年 GuoTang. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+/**
+ *  日志
+ */
+#ifndef DEBUGLOG
+#ifdef DEBUG
+#define DEBUGLOG(format,...) NSLog(format, ## __VA_ARGS__)
+#else
+#define DEBUGLOG(format,...)
+#endif
+#endif
+
+#define SERVER  @"http://210.14.132.115"
+#define APP_CODE    @"LeQMA8kH5Z4PctUdAFD2"
+#define APP_SCRECT  @"91ecfedd296c05b12c9daa2e5590dc70"
+
+
+//http://210.14.132.115/api-docs.do
+
+
+#endif /* PrefixHeader_pch */

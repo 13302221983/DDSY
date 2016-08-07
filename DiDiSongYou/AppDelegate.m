@@ -8,7 +8,9 @@
 
 #import "AppDelegate.h"
 #import "UILoginViewController.h"
+#import "Functions.h"
 #import <BaiduMapAPI_Base/BMKMapManager.h>
+
 
 @interface AppDelegate ()<BMKGeneralDelegate>
 
@@ -26,6 +28,12 @@
     BOOL ret = [_mapManager start:@"Dqlv7zmt8jjp5tXlU8SwS522oUKG4CzK"  generalDelegate:self];
     if (!ret) {
         NSLog(@"manager start failed!");
+    }
+    
+    NSString *dvice_info = [[NSUserDefaults standardUserDefaults] stringForKey:@"dvice_info"];
+    if( !dvice_info )
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:[Functions uuid] forKey:@"dvice_info"];
     }
     
     UILoginViewController *loginVC = [[UILoginViewController alloc] init];

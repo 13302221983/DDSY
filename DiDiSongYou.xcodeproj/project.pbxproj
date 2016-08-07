@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26A8CEE21D5626B500FDC3B5 /* Ints.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A8CEE11D5626B500FDC3B5 /* Ints.m */; };
+		26A8CEE71D56282A00FDC3B5 /* AFHTTPRequestOperationManagerEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A8CEE41D56282A00FDC3B5 /* AFHTTPRequestOperationManagerEx.m */; };
+		26A8CEE81D56282A00FDC3B5 /* AFJSONResponseSerializerEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A8CEE61D56282A00FDC3B5 /* AFJSONResponseSerializerEx.m */; };
+		26A8CEEC1D562B1100FDC3B5 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A8CEEB1D562B1100FDC3B5 /* GTMNSString+HTML.m */; };
+		26A8CEF11D562D2000FDC3B5 /* CocoaSecurity.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A8CEEE1D562D2000FDC3B5 /* CocoaSecurity.m */; };
+		26A8CEF21D562D2000FDC3B5 /* Functions.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A8CEF01D562D2000FDC3B5 /* Functions.m */; };
+		26A8CEF51D562D6800FDC3B5 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A8CEF41D562D6800FDC3B5 /* Base64.m */; };
+		26A8CEF81D57106D00FDC3B5 /* AFJSONRequestSerializerEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A8CEF71D57106D00FDC3B5 /* AFJSONRequestSerializerEx.m */; };
+		26A8CEFB1D57648600FDC3B5 /* NSDictionary+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A8CEFA1D57648600FDC3B5 /* NSDictionary+Extension.m */; };
+		26A8CEFE1D57673000FDC3B5 /* MdLoginUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A8CEFD1D57673000FDC3B5 /* MdLoginUserInfo.m */; };
 		D01832151CEF497600863D1B /* UILoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D01832141CEF497600863D1B /* UILoginViewController.m */; };
 		D01832611CEF49CC00863D1B /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D01832191CEF49CC00863D1B /* AFHTTPRequestOperation.m */; };
 		D01832621CEF49CC00863D1B /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D018321B1CEF49CC00863D1B /* AFHTTPRequestOperationManager.m */; };
@@ -116,6 +126,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		26A8CEE01D5626B500FDC3B5 /* Ints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ints.h; sourceTree = "<group>"; };
+		26A8CEE11D5626B500FDC3B5 /* Ints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ints.m; sourceTree = "<group>"; };
+		26A8CEE31D56282A00FDC3B5 /* AFHTTPRequestOperationManagerEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManagerEx.h; sourceTree = "<group>"; };
+		26A8CEE41D56282A00FDC3B5 /* AFHTTPRequestOperationManagerEx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperationManagerEx.m; sourceTree = "<group>"; };
+		26A8CEE51D56282A00FDC3B5 /* AFJSONResponseSerializerEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFJSONResponseSerializerEx.h; sourceTree = "<group>"; };
+		26A8CEE61D56282A00FDC3B5 /* AFJSONResponseSerializerEx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFJSONResponseSerializerEx.m; sourceTree = "<group>"; };
+		26A8CEE91D56297400FDC3B5 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		26A8CEEA1D562B1100FDC3B5 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
+		26A8CEEB1D562B1100FDC3B5 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
+		26A8CEED1D562D2000FDC3B5 /* CocoaSecurity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaSecurity.h; sourceTree = "<group>"; };
+		26A8CEEE1D562D2000FDC3B5 /* CocoaSecurity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocoaSecurity.m; sourceTree = "<group>"; };
+		26A8CEEF1D562D2000FDC3B5 /* Functions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Functions.h; sourceTree = "<group>"; };
+		26A8CEF01D562D2000FDC3B5 /* Functions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Functions.m; sourceTree = "<group>"; };
+		26A8CEF31D562D6800FDC3B5 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
+		26A8CEF41D562D6800FDC3B5 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
+		26A8CEF61D57106D00FDC3B5 /* AFJSONRequestSerializerEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFJSONRequestSerializerEx.h; sourceTree = "<group>"; };
+		26A8CEF71D57106D00FDC3B5 /* AFJSONRequestSerializerEx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFJSONRequestSerializerEx.m; sourceTree = "<group>"; };
+		26A8CEF91D57648600FDC3B5 /* NSDictionary+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Extension.h"; sourceTree = "<group>"; };
+		26A8CEFA1D57648600FDC3B5 /* NSDictionary+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Extension.m"; sourceTree = "<group>"; };
+		26A8CEFC1D57673000FDC3B5 /* MdLoginUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MdLoginUserInfo.h; sourceTree = "<group>"; };
+		26A8CEFD1D57673000FDC3B5 /* MdLoginUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MdLoginUserInfo.m; sourceTree = "<group>"; };
 		D01832131CEF497600863D1B /* UILoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILoginViewController.h; sourceTree = "<group>"; };
 		D01832141CEF497600863D1B /* UILoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILoginViewController.m; sourceTree = "<group>"; };
 		D01832181CEF49CC00863D1B /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -359,6 +390,8 @@
 				D0EFBBC81D1234C40050A2D5 /* Macro.h */,
 				D0EFBBD41D1245B10050A2D5 /* MdAccountInfo.h */,
 				D0EFBBD51D1245B10050A2D5 /* MdAccountInfo.m */,
+				26A8CEFC1D57673000FDC3B5 /* MdLoginUserInfo.h */,
+				26A8CEFD1D57673000FDC3B5 /* MdLoginUserInfo.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -682,6 +715,7 @@
 			isa = PBXGroup;
 			children = (
 				D0CEBF641CE3440100808DDF /* main.m */,
+				26A8CEE91D56297400FDC3B5 /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -711,10 +745,28 @@
 		D0EFBBD71D124C510050A2D5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				26A8CEF91D57648600FDC3B5 /* NSDictionary+Extension.h */,
+				26A8CEFA1D57648600FDC3B5 /* NSDictionary+Extension.m */,
+				26A8CEF31D562D6800FDC3B5 /* Base64.h */,
+				26A8CEF41D562D6800FDC3B5 /* Base64.m */,
+				26A8CEED1D562D2000FDC3B5 /* CocoaSecurity.h */,
+				26A8CEEE1D562D2000FDC3B5 /* CocoaSecurity.m */,
+				26A8CEEF1D562D2000FDC3B5 /* Functions.h */,
+				26A8CEF01D562D2000FDC3B5 /* Functions.m */,
+				26A8CEEA1D562B1100FDC3B5 /* GTMNSString+HTML.h */,
+				26A8CEEB1D562B1100FDC3B5 /* GTMNSString+HTML.m */,
+				26A8CEE31D56282A00FDC3B5 /* AFHTTPRequestOperationManagerEx.h */,
+				26A8CEE41D56282A00FDC3B5 /* AFHTTPRequestOperationManagerEx.m */,
+				26A8CEE51D56282A00FDC3B5 /* AFJSONResponseSerializerEx.h */,
+				26A8CEE61D56282A00FDC3B5 /* AFJSONResponseSerializerEx.m */,
 				D0EFBBD81D124C670050A2D5 /* LocalData.h */,
 				D0EFBBD91D124C670050A2D5 /* LocalData.m */,
 				D07223E21D1B839C00EE1B7E /* HttpAccess.h */,
 				D07223E31D1B839C00EE1B7E /* HttpAccess.m */,
+				26A8CEE01D5626B500FDC3B5 /* Ints.h */,
+				26A8CEE11D5626B500FDC3B5 /* Ints.m */,
+				26A8CEF61D57106D00FDC3B5 /* AFJSONRequestSerializerEx.h */,
+				26A8CEF71D57106D00FDC3B5 /* AFJSONRequestSerializerEx.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -831,15 +883,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26A8CEF51D562D6800FDC3B5 /* Base64.m in Sources */,
 				D087A4E91D15580400EE179F /* UICarListTableViewCell.m in Sources */,
 				D087A4E31D15440400EE179F /* UIAboutViewController.m in Sources */,
 				D0EFBBDD1D12564F0050A2D5 /* UIBalanceViewController.m in Sources */,
+				26A8CEE71D56282A00FDC3B5 /* AFHTTPRequestOperationManagerEx.m in Sources */,
 				D0EFBBCB1D12374C0050A2D5 /* UIMyAccountViewController.m in Sources */,
 				D06B63801CF9A52D00D4679D /* UIImageView+HighlightedWebCache.m in Sources */,
 				D0EFBBAA1D1006D00050A2D5 /* UIMessageTableViewCell.m in Sources */,
 				D01832791CEF49CC00863D1B /* MASViewConstraint.m in Sources */,
 				D01832151CEF497600863D1B /* UILoginViewController.m in Sources */,
 				D018327A1CEF49CC00863D1B /* NSArray+MASAdditions.m in Sources */,
+				26A8CEFB1D57648600FDC3B5 /* NSDictionary+Extension.m in Sources */,
 				D06B63501CF9A01F00D4679D /* UIOrderTableViewCell.m in Sources */,
 				D0EFBBD61D1245B10050A2D5 /* MdAccountInfo.m in Sources */,
 				D087A4DD1D15354A00EE179F /* UIBindMobileViewController.m in Sources */,
@@ -857,9 +912,11 @@
 				D0FDE71C1D06B9140096C41E /* MdFont.m in Sources */,
 				D0CEBF6B1CE3440100808DDF /* ViewController.m in Sources */,
 				D01832741CEF49CC00863D1B /* MASCompositeConstraint.m in Sources */,
+				26A8CEF21D562D2000FDC3B5 /* Functions.m in Sources */,
 				D06B637A1CF9A52D00D4679D /* SDWebImageManager.m in Sources */,
 				D06B63811CF9A52D00D4679D /* UIImageView+WebCache.m in Sources */,
 				D01832621CEF49CC00863D1B /* AFHTTPRequestOperationManager.m in Sources */,
+				26A8CEF11D562D2000FDC3B5 /* CocoaSecurity.m in Sources */,
 				D018326A1CEF49CC00863D1B /* CLIColor.m in Sources */,
 				D07E24EB1D01738D0005FBFB /* MdOrder.m in Sources */,
 				D01832661CEF49CC00863D1B /* AFURLConnectionOperation.m in Sources */,
@@ -867,10 +924,12 @@
 				D07223E41D1B839C00EE1B7E /* HttpAccess.m in Sources */,
 				D0FDE7321D06CFBA0096C41E /* UIAddOilConfirmViewController.m in Sources */,
 				D087A4E01D1541A700EE179F /* UIFeedbackViewController.m in Sources */,
+				26A8CEEC1D562B1100FDC3B5 /* GTMNSString+HTML.m in Sources */,
 				D07E24F71D017A390005FBFB /* UIFindPasswordViewController.m in Sources */,
 				D06B63731CF9A52D00D4679D /* MKAnnotationView+WebCache.m in Sources */,
 				D06B63741CF9A52D00D4679D /* NSData+ImageContentType.m in Sources */,
 				D01832731CEF49CC00863D1B /* DDMultiFormatter.m in Sources */,
+				26A8CEE81D56282A00FDC3B5 /* AFJSONResponseSerializerEx.m in Sources */,
 				D01832751CEF49CC00863D1B /* MASConstraint.m in Sources */,
 				D01832611CEF49CC00863D1B /* AFHTTPRequestOperation.m in Sources */,
 				D018326E1CEF49CC00863D1B /* DDFileLogger.m in Sources */,
@@ -886,6 +945,7 @@
 				D01832631CEF49CC00863D1B /* AFHTTPSessionManager.m in Sources */,
 				D01832771CEF49CC00863D1B /* MASLayoutConstraint.m in Sources */,
 				D0FDE72F1D06CB1B0096C41E /* UILocationSelectViewController.mm in Sources */,
+				26A8CEE21D5626B500FDC3B5 /* Ints.m in Sources */,
 				D087A4D81D12B9F300EE179F /* UIAccountMgrViewController.m in Sources */,
 				D018327C1CEF49CC00863D1B /* View+MASAdditions.m in Sources */,
 				D06B637E1CF9A52D00D4679D /* UIImage+MultiFormat.m in Sources */,
@@ -908,6 +968,7 @@
 				D01832691CEF49CC00863D1B /* AFURLSessionManager.m in Sources */,
 				D06B637D1CF9A52D00D4679D /* UIImage+GIF.m in Sources */,
 				D0FDE7291D06C75D0096C41E /* UIAddOilViewController.m in Sources */,
+				26A8CEFE1D57673000FDC3B5 /* MdLoginUserInfo.m in Sources */,
 				D0CEBF651CE3440100808DDF /* main.m in Sources */,
 				D0EFBBB01D1011B60050A2D5 /* MyOrderViewController.m in Sources */,
 				D018326B1CEF49CC00863D1B /* DDAbstractDatabaseLogger.m in Sources */,
@@ -915,6 +976,7 @@
 				D018326F1CEF49CC00863D1B /* DDLog.m in Sources */,
 				D06B63761CF9A52D00D4679D /* SDWebImageCompat.m in Sources */,
 				D06B63751CF9A52D00D4679D /* SDImageCache.m in Sources */,
+				26A8CEF81D57106D00FDC3B5 /* AFJSONRequestSerializerEx.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1029,6 +1091,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/DiDiSongYou/Vendor/BaiduMap_IOSSDK_v3",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/DiDiSongYou/PrefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				INFOPLIST_FILE = DiDiSongYou/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -1049,6 +1113,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/DiDiSongYou/Vendor/BaiduMap_IOSSDK_v3",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/DiDiSongYou/PrefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				INFOPLIST_FILE = DiDiSongYou/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
