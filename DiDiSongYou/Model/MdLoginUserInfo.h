@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MdUserDetail.h"
 
 
 @interface MdLoginUserInfo : NSObject
@@ -47,7 +48,7 @@
 /**
  * 验证表标志
  */
-@property (nonatomic,copy) NSString *id;
+@property (nonatomic,copy) NSString *Id;
 
 
 /**
@@ -66,5 +67,7 @@
  * 登陆用户名
  */
 @property (nonatomic,copy) NSString *username;
+
+@property (nonatomic,copy) MdUserDetail *detail;
 
 @end

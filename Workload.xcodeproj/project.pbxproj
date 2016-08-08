@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		263494A51D58A34000805B82 /* AppHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 263494A41D58A34000805B82 /* AppHelper.m */; };
+		263494A81D58A64A00805B82 /* MdUserDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 263494A71D58A64A00805B82 /* MdUserDetail.m */; };
+		263494AB1D58A69200805B82 /* MdMemberLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 263494AA1D58A69200805B82 /* MdMemberLevel.m */; };
+		263494AE1D58A73000805B82 /* MdMemberType.m in Sources */ = {isa = PBXBuildFile; fileRef = 263494AD1D58A73000805B82 /* MdMemberType.m */; };
+		263494B11D58A7A800805B82 /* MdNation.m in Sources */ = {isa = PBXBuildFile; fileRef = 263494B01D58A7A800805B82 /* MdNation.m */; };
+		263494B41D58B1E900805B82 /* MdChargeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 263494B31D58B1E900805B82 /* MdChargeItem.m */; };
+		263494B71D58B33900805B82 /* MdPageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 263494B61D58B33900805B82 /* MdPageInfo.m */; };
 		26A8CEE21D5626B500FDC3B5 /* Ints.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A8CEE11D5626B500FDC3B5 /* Ints.m */; };
 		26A8CEE71D56282A00FDC3B5 /* AFHTTPRequestOperationManagerEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A8CEE41D56282A00FDC3B5 /* AFHTTPRequestOperationManagerEx.m */; };
 		26A8CEE81D56282A00FDC3B5 /* AFJSONResponseSerializerEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A8CEE61D56282A00FDC3B5 /* AFJSONResponseSerializerEx.m */; };
@@ -126,6 +133,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		263494A31D58A34000805B82 /* AppHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppHelper.h; sourceTree = "<group>"; };
+		263494A41D58A34000805B82 /* AppHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppHelper.m; sourceTree = "<group>"; };
+		263494A61D58A64A00805B82 /* MdUserDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MdUserDetail.h; sourceTree = "<group>"; };
+		263494A71D58A64A00805B82 /* MdUserDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MdUserDetail.m; sourceTree = "<group>"; };
+		263494A91D58A69100805B82 /* MdMemberLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MdMemberLevel.h; sourceTree = "<group>"; };
+		263494AA1D58A69200805B82 /* MdMemberLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MdMemberLevel.m; sourceTree = "<group>"; };
+		263494AC1D58A73000805B82 /* MdMemberType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MdMemberType.h; sourceTree = "<group>"; };
+		263494AD1D58A73000805B82 /* MdMemberType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MdMemberType.m; sourceTree = "<group>"; };
+		263494AF1D58A7A800805B82 /* MdNation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MdNation.h; sourceTree = "<group>"; };
+		263494B01D58A7A800805B82 /* MdNation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MdNation.m; sourceTree = "<group>"; };
+		263494B21D58B1E900805B82 /* MdChargeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MdChargeItem.h; sourceTree = "<group>"; };
+		263494B31D58B1E900805B82 /* MdChargeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MdChargeItem.m; sourceTree = "<group>"; };
+		263494B51D58B33900805B82 /* MdPageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MdPageInfo.h; sourceTree = "<group>"; };
+		263494B61D58B33900805B82 /* MdPageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MdPageInfo.m; sourceTree = "<group>"; };
 		26A8CEE01D5626B500FDC3B5 /* Ints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ints.h; sourceTree = "<group>"; };
 		26A8CEE11D5626B500FDC3B5 /* Ints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ints.m; sourceTree = "<group>"; };
 		26A8CEE31D56282A00FDC3B5 /* AFHTTPRequestOperationManagerEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManagerEx.h; sourceTree = "<group>"; };
@@ -294,7 +315,7 @@
 		D0937D8F1D17831800A6CFFB /* BaiduMapAPI_Map.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Map.framework; sourceTree = "<group>"; };
 		D0937D901D17831800A6CFFB /* BaiduMapAPI_Search.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Search.framework; sourceTree = "<group>"; };
 		D0937D911D17831800A6CFFB /* BaiduMapAPI_Utils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Utils.framework; sourceTree = "<group>"; };
-		D0CEBF601CE3440100808DDF /* DiDiSongYou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiDiSongYou.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0CEBF601CE3440100808DDF /* Workload.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workload.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0CEBF641CE3440100808DDF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D0CEBF661CE3440100808DDF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D0CEBF671CE3440100808DDF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -392,6 +413,20 @@
 				D0EFBBD51D1245B10050A2D5 /* MdAccountInfo.m */,
 				26A8CEFC1D57673000FDC3B5 /* MdLoginUserInfo.h */,
 				26A8CEFD1D57673000FDC3B5 /* MdLoginUserInfo.m */,
+				263494A31D58A34000805B82 /* AppHelper.h */,
+				263494A41D58A34000805B82 /* AppHelper.m */,
+				263494A61D58A64A00805B82 /* MdUserDetail.h */,
+				263494A71D58A64A00805B82 /* MdUserDetail.m */,
+				263494A91D58A69100805B82 /* MdMemberLevel.h */,
+				263494AA1D58A69200805B82 /* MdMemberLevel.m */,
+				263494AC1D58A73000805B82 /* MdMemberType.h */,
+				263494AD1D58A73000805B82 /* MdMemberType.m */,
+				263494AF1D58A7A800805B82 /* MdNation.h */,
+				263494B01D58A7A800805B82 /* MdNation.m */,
+				263494B21D58B1E900805B82 /* MdChargeItem.h */,
+				263494B31D58B1E900805B82 /* MdChargeItem.m */,
+				263494B51D58B33900805B82 /* MdPageInfo.h */,
+				263494B61D58B33900805B82 /* MdPageInfo.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -685,7 +720,7 @@
 		D0CEBF611CE3440100808DDF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D0CEBF601CE3440100808DDF /* DiDiSongYou.app */,
+				D0CEBF601CE3440100808DDF /* Workload.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -802,9 +837,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D0CEBF5F1CE3440100808DDF /* DiDiSongYou */ = {
+		D0CEBF5F1CE3440100808DDF /* Workload */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D0CEBF771CE3440100808DDF /* Build configuration list for PBXNativeTarget "DiDiSongYou" */;
+			buildConfigurationList = D0CEBF771CE3440100808DDF /* Build configuration list for PBXNativeTarget "Workload" */;
 			buildPhases = (
 				D0CEBF5C1CE3440100808DDF /* Sources */,
 				D0CEBF5D1CE3440100808DDF /* Frameworks */,
@@ -814,9 +849,9 @@
 			);
 			dependencies = (
 			);
-			name = DiDiSongYou;
+			name = Workload;
 			productName = DiDiSongYou;
-			productReference = D0CEBF601CE3440100808DDF /* DiDiSongYou.app */;
+			productReference = D0CEBF601CE3440100808DDF /* Workload.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -838,7 +873,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D0CEBF5B1CE3440100808DDF /* Build configuration list for PBXProject "DiDiSongYou" */;
+			buildConfigurationList = D0CEBF5B1CE3440100808DDF /* Build configuration list for PBXProject "Workload" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -851,7 +886,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D0CEBF5F1CE3440100808DDF /* DiDiSongYou */,
+				D0CEBF5F1CE3440100808DDF /* Workload */,
 			);
 		};
 /* End PBXProject section */
@@ -895,6 +930,7 @@
 				D01832151CEF497600863D1B /* UILoginViewController.m in Sources */,
 				D018327A1CEF49CC00863D1B /* NSArray+MASAdditions.m in Sources */,
 				26A8CEFB1D57648600FDC3B5 /* NSDictionary+Extension.m in Sources */,
+				263494A81D58A64A00805B82 /* MdUserDetail.m in Sources */,
 				D06B63501CF9A01F00D4679D /* UIOrderTableViewCell.m in Sources */,
 				D0EFBBD61D1245B10050A2D5 /* MdAccountInfo.m in Sources */,
 				D087A4DD1D15354A00EE179F /* UIBindMobileViewController.m in Sources */,
@@ -903,6 +939,7 @@
 				D087A4D01D12A68300EE179F /* UIListViewCell.m in Sources */,
 				D01832701CEF49CC00863D1B /* DDTTYLogger.m in Sources */,
 				D018327D1CEF49CC00863D1B /* ViewController+MASAdditions.m in Sources */,
+				263494A51D58A34000805B82 /* AppHelper.m in Sources */,
 				D06B634D1CF99C8600D4679D /* UIHomeCollectionViewCell.m in Sources */,
 				D0EFBBD01D123D030050A2D5 /* UIMyAccountTableViewCell.m in Sources */,
 				D0EFBBDA1D124C670050A2D5 /* LocalData.m in Sources */,
@@ -936,11 +973,13 @@
 				D01832711CEF49CC00863D1B /* DDContextFilterLogFormatter.m in Sources */,
 				D06B63791CF9A52D00D4679D /* SDWebImageDownloaderOperation.m in Sources */,
 				D0CEBF681CE3440100808DDF /* AppDelegate.m in Sources */,
+				263494B41D58B1E900805B82 /* MdChargeItem.m in Sources */,
 				D01832671CEF49CC00863D1B /* AFURLRequestSerialization.m in Sources */,
 				D0813B021CF6FDFB001E9C35 /* UIHomeViewController.m in Sources */,
 				D0EFBBD31D12410C0050A2D5 /* UIAccountInfoViewController.m in Sources */,
 				D06B637F1CF9A52D00D4679D /* UIImage+WebP.m in Sources */,
 				D06B63781CF9A52D00D4679D /* SDWebImageDownloader.m in Sources */,
+				263494B11D58A7A800805B82 /* MdNation.m in Sources */,
 				D0FDE72C1D06C89B0096C41E /* MdCarInfo.m in Sources */,
 				D01832631CEF49CC00863D1B /* AFHTTPSessionManager.m in Sources */,
 				D01832771CEF49CC00863D1B /* MASLayoutConstraint.m in Sources */,
@@ -948,6 +987,7 @@
 				26A8CEE21D5626B500FDC3B5 /* Ints.m in Sources */,
 				D087A4D81D12B9F300EE179F /* UIAccountMgrViewController.m in Sources */,
 				D018327C1CEF49CC00863D1B /* View+MASAdditions.m in Sources */,
+				263494B71D58B33900805B82 /* MdPageInfo.m in Sources */,
 				D06B637E1CF9A52D00D4679D /* UIImage+MultiFormat.m in Sources */,
 				D06B63771CF9A52D00D4679D /* SDWebImageDecoder.m in Sources */,
 				D0EFBBE01D128CD50050A2D5 /* UIRechargeViewController.m in Sources */,
@@ -961,7 +1001,9 @@
 				D0FDE71F1D06BE2D0096C41E /* MdColor.m in Sources */,
 				D018327B1CEF49CC00863D1B /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				D06B637B1CF9A52D00D4679D /* SDWebImagePrefetcher.m in Sources */,
+				263494AE1D58A73000805B82 /* MdMemberType.m in Sources */,
 				D0EFBBB31D1012260050A2D5 /* UIOrderListTableViewCell.m in Sources */,
+				263494AB1D58A69200805B82 /* MdMemberLevel.m in Sources */,
 				D06B63821CF9A52D00D4679D /* UIView+WebCacheOperation.m in Sources */,
 				D01832681CEF49CC00863D1B /* AFURLResponseSerialization.m in Sources */,
 				D01832761CEF49CC00863D1B /* MASConstraintMaker.m in Sources */,
@@ -1129,7 +1171,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D0CEBF5B1CE3440100808DDF /* Build configuration list for PBXProject "DiDiSongYou" */ = {
+		D0CEBF5B1CE3440100808DDF /* Build configuration list for PBXProject "Workload" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D0CEBF751CE3440100808DDF /* Debug */,
@@ -1138,7 +1180,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D0CEBF771CE3440100808DDF /* Build configuration list for PBXNativeTarget "DiDiSongYou" */ = {
+		D0CEBF771CE3440100808DDF /* Build configuration list for PBXNativeTarget "Workload" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D0CEBF781CE3440100808DDF /* Debug */,

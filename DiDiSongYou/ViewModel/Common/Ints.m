@@ -9,26 +9,37 @@
 #import "Ints.h"
 #import "AFHTTPRequestOperationManagerEx.h"
 #import "Functions.h"
-#import "NSDictionary+Extension.h"
 
 @implementation Ints
 
-/*
- {"header":{"errcode":"0000","errmsg":"操作成功"},"body":{"user_table":"MECP_MEMBER","mobile":"13480238579","enabled":"1","expired_date":"2019-06-23 16:58:09","pwd_expired_date":"2016-09-23 16:58:09","user_id":"34368003919446016","id":"22145461313863680","locked":"0","email":"binljb@qq.com","username":"gzOper"}}
- */
-+ (void)loginAccount:(NSString *)account password:(NSString *)password block:(void (^)(NSString *))block
++ (void)loginAccount:(NSString *)account
+            password:(NSString *)password
+               block:(void (^)(NSString *))block
 {
     NSString *page = @"/api/basic/authenticate.do";
     NSString *url = [NSString stringWithFormat:@"%@%@", SERVER,page];
     
-    AF_HTTP_REQUEST_SUCCESS success = ^(AFHTTPRequestOperation *operation, id response){
+    AF_HTTP_REQUEST_SUCCESS success = ^(AFHTTPRequestOperation *operation, id response)
+    {
         NSDictionary *result = [Functions dictionaryWithResponseObject:response];
         NSDictionary *header = [result dictionaryForKey:@"header"];
         NSString *errcode = [header stringForKey:@"errcode"];
         NSString *error = nil;
         if( [errcode isEqualToString:@"0000"] )
         {
-            NSDictionary *body = [result dictionaryForKey:@"errmsg"];
+            MdLoginUserInfo *userInfo = [[MdLoginUserInfo alloc] init];
+            NSDictionary *body = [result dictionaryForKey:@"body"];
+            userInfo.user_table = [body stringForKey:@"user_table"];
+            userInfo.mobile = [body stringForKey:@"mobile"];
+            userInfo.enabled = [body stringForKey:@"enabled"];
+            userInfo.expired_date = [body stringForKey:@"expired_date"];
+            userInfo.pwd_expired_date = [body stringForKey:@"pwd_expired_date"];
+            userInfo.user_id = [body stringForKey:@"user_id"];
+            userInfo.Id = [body stringForKey:@"id"];
+            userInfo.locked = [body stringForKey:@"locked"];
+            userInfo.email = [body stringForKey:@"email"];
+            userInfo.username = [body stringForKey:@"username"];
+            [AppHelper helper].loginUserInfo = userInfo;
         }
         else
         {
@@ -40,7 +51,8 @@
         }
     };
     
-    AF_HTTP_REQUEST_FAILURE failure = ^(AFHTTPRequestOperation *operation, NSError *error){
+    AF_HTTP_REQUEST_FAILURE failure = ^(AFHTTPRequestOperation *operation, NSError *error)
+    {
         if( block )
         {
             block( error.localizedDescription );
@@ -50,121 +62,172 @@
     NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithCapacity:0];
     [params setValue:account forKey:@"username"];
     [params setValue:password forKey:@"password"];
-    [[AFHTTPRequestOperationManagerEx manager] POST:url parameters:params success:success failure:failure];
+    
+    [[AFHTTPRequestOperationManagerEx manager] POST:url
+                                         parameters:params
+                                            success:success
+                                            failure:failure];
 }
 
 
-/*
- http://210.14.132.115/api/basic/infos.do
- 
- {
- "table": "MECP_MEMBER",
- "userId": 34368003919446016
- }
- 
- {
- "header": {
- "errcode": "0000",
- "errmsg": "操作成功"
- },
- "body": {
- "birthday": "2016-06-28 00:00:00",
- "member_type": {
- "enabled": "1",
- "id": "15390530884075520",
- "notes": "",
- "settle_type": "2",
- "type_name": "加油站会员"
- },
- "notes": null,
- "sum_charge": "65000.00",
- "gender": "M",
- "franchise_infos_id": "21331630991867904",
- "nation": {
- "id": "01",
- "nation_name": "汉族"
- },
- "overdraft": "0.00",
- "modifier": "199024123456",
- "id_card": "4418225664445522",
- "real_name": "张三",
- "zip_code": "510006",
- "balance": "59500.00",
- "id": "34368003919446016",
- "contact_address": "广东广州",
- "emergency_contact_phone": null,
- "email": null,
- "approval_date": "2016-07-27 10:29:54",
- "creator": "199024123456",
- "approval": "199024123458",
- "system_id": "21331630991867904",
- "mobile": null,
- "sum_consum": "5500.00",
- "telephone": null,
- "member_account": "5556666",
- "member_level": {
- "discount": "0.85",
- "enabled": "1",
- "first_min_recharge_amount": "2500.00",
- "id": "20679234083094528",
- "level_name": "",
- "max_register_vehicles": "3",
- "min_recharge_amount": "5000.00",
- "notes": ""
- },
- "registered_residence": "广东广州",
- "apply_level": "15717531566211072",
- "created_date": "2016-07-27 10:26:27",
- "updated_date": "2016-07-27 14:14:39",
- "pic_url": null,
- "emergency_contact": null,
- "status": "2"
- }
- }
- */
+
++ (void)getUserDetailWithBlock:(void(^)(NSString *error))block
+{
+    NSString *page = @"/api/basic/infos.do";
+    NSString *url = [NSString stringWithFormat:@"%@%@", SERVER, page];
+    
+    AF_HTTP_REQUEST_SUCCESS success = ^(AFHTTPRequestOperation *operation, id response)
+    {
+        NSDictionary *result = [Functions dictionaryWithResponseObject:response];
+        NSDictionary *header = [result dictionaryForKey:@"header"];
+        NSString *errcode = [header stringForKey:@"errcode"];
+        NSString *error = nil;
+        if( [errcode isEqualToString:@"0000"] )
+        {
+            NSDictionary *body = [result dictionaryForKey:@"body"];
+            NSDictionary *member_level = [body dictionaryForKey:@"member_level"];
+            NSDictionary *member_type = [body dictionaryForKey:@"member_type"];
+            NSDictionary *nation = [body dictionaryForKey:@"nation"];
+            
+            MdMemberLevel *memberLevel = [[MdMemberLevel alloc] init];
+            memberLevel.discount = [member_level stringForKey:@"discount"];
+            memberLevel.enabled = [member_level stringForKey:@"enabled"];
+            memberLevel.first_min_recharge_amount = [member_level stringForKey:@"first_min_recharge_amount"];
+            memberLevel.Id = [member_level stringForKey:@"id"];
+            memberLevel.level_name = [member_level stringForKey:@"level_name"];
+            memberLevel.max_register_vehicles = [member_level stringForKey:@"max_register_vehicles"];
+            memberLevel.min_recharge_amount = [member_level stringForKey:@"min_recharge_amount"];
+            memberLevel.notes = [member_level stringForKey:@"notes"];
+            
+            MdMemberType *memberType = [[MdMemberType alloc] init];
+            memberType.enabled = [member_type stringForKey:@"enabled"];
+            memberType.Id = [member_type stringForKey:@"id"];
+            memberType.notes = [member_type stringForKey:@"notes"];
+            memberType.settle_type = [member_type stringForKey:@"settle_type"];
+            memberType.type_name = [member_type stringForKey:@"type_name"];
+            
+            MdNation *mdNation = [[MdNation alloc] init];
+            mdNation.Id = [nation stringForKey:@"id"];
+            mdNation.nation_name = [nation stringForKey:@"nation_name"];
+            
+            MdUserDetail *detail = [[MdUserDetail alloc] init];
+            detail.memberLevel = memberLevel;
+            detail.memberType = memberType;
+            detail.nation = mdNation;
+            detail.apply_level = [body stringForKey:@"apply_level"];
+            detail.approval = [body stringForKey:@"approval"];
+            detail.approval_date = [body stringForKey:@"approval_date"];
+            detail.balance = [body stringForKey:@"balance"];
+            detail.birthday = [body stringForKey:@"birthday"];
+            detail.contact_address = [body stringForKey:@"contact_address"];
+            detail.created_date = [body stringForKey:@"created_date"];
+            detail.creator = [body stringForKey:@"creator"];
+            detail.email = [body stringForKey:@"email"];
+            detail.emergency_contact = [body stringForKey:@"emergency_contact"];
+            detail.emergency_contact_phone = [body stringForKey:@"emergency_contact_phone"];
+            detail.franchise_infos_id = [body stringForKey:@"franchise_infos_id"];
+            detail.gender = [body stringForKey:@"gender"];
+            detail.Id = [body stringForKey:@"id"];
+            detail.id_card = [body stringForKey:@"id_card"];
+            detail.member_account = [body stringForKey:@"member_account"];
+            detail.mobile = [body stringForKey:@"mobile"];
+            detail.modifier = [body stringForKey:@"modifier"];
+            detail.notes = [body stringForKey:@"notes"];
+            detail.overdraft = [body stringForKey:@"overdraft"];
+            detail.pic_url = [body stringForKey:@"pic_url"];
+            detail.real_name = [body stringForKey:@"real_name"];
+            detail.registered_residence = [body stringForKey:@"registered_residence"];
+            detail.status = [body stringForKey:@"status"];
+            detail.sum_charge = [body stringForKey:@"sum_charge"];
+            detail.sum_consum = [body stringForKey:@"sum_consum"];
+            detail.system_id = [body stringForKey:@"system_id"];
+            detail.telephone = [body stringForKey:@"telephone"];
+            detail.updated_date = [body stringForKey:@"updated_date"];
+            detail.zip_code = [body stringForKey:@"zip_code"];
+        }
+        else
+        {
+            error = [header stringForKey:@"body"];
+        }
+        if( block )
+        {
+            block( error );
+        }
+    };
+    
+    AF_HTTP_REQUEST_FAILURE failure = ^(AFHTTPRequestOperation *operation, NSError *error)
+    {
+        if( block )
+        {
+            block( error.localizedDescription );
+        }
+    };
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithCapacity:0];
+    [params setObject:[AppHelper helper].loginUserInfo.user_table forKey:@"table"];
+    [params setObject:[AppHelper helper].loginUserInfo.user_id forKey:@"userId"];
+    
+    [[AFHTTPRequestOperationManagerEx manager] POST:url
+                                         parameters:params
+                                            success:success
+                                            failure:failure];
+}
 
 
-/*
- POST /api/member/charge.do
- 
- {
- "pageNum": 1,
- "pageSize": 10,
- "username": "gzOper"
- }
- 
- {
- "header": {
- "errcode": "0000",
- "errmsg": "操作成功"
- },
- "body": {
- "list": [
- {
- "id": "1",
- "charge_amount": "10000.00",
- "charge_time": "2016-07-01 15:41:08"
- },
- {
- "id": "2",
- "charge_amount": "5000.00",
- "charge_time": "2016-07-01 16:33:11"
- },
- {
- "id": "3",
- "charge_amount": "50000.00",
- "charge_time": "2016-07-26 11:23:12"
- }
- ],
- "pageNumber": 1,
- "pageSize": 10,
- "totalPage": 1,
- "totalRow": 3,
- "firstPage": true,
- "lastPage": true
- }
- }
- */
+
++ (void)getChargeListForPageNum:(NSInteger)pageNum PageSize:(NSInteger)pageSize block:(CHARGE_LIST_BLK)block
+{
+    NSString *page = @"/api/member/charge.do";
+    NSString *url = [NSString stringWithFormat:@"%@%@", SERVER, page];
+    
+    AF_HTTP_REQUEST_SUCCESS success = ^(AFHTTPRequestOperation *operation, id response)
+    {
+        NSMutableArray *items;
+        MdPageInfo *page;
+        NSDictionary *result = [Functions dictionaryWithResponseObject:response];
+        NSDictionary *header = [result dictionaryForKey:@"header"];
+        NSString *errcode = [header stringForKey:@"errcode"];
+        NSString *error = nil;
+        if( [errcode isEqualToString:@"0000"] )
+        {
+            items = [[NSMutableArray alloc] initWithCapacity:0];
+            NSDictionary *body = [result dictionaryForKey:@"body"];
+            NSArray *list = [body arrayForKey:@"list"];
+            for( NSDictionary *item in list )
+            {
+                [items addObject:[MdChargeItem fromDictionary:item]];
+            }
+            
+            page = [MdPageInfo fromDictionary:body];
+        }
+        else
+        {
+            error = [header stringForKey:@"body"];
+        }
+        if( block )
+        {
+            block( items, page, error );
+        }
+    };
+    
+    AF_HTTP_REQUEST_FAILURE failure = ^(AFHTTPRequestOperation *operation, NSError *error)
+    {
+        if( block )
+        {
+            block( nil, nil, error.localizedDescription );
+        }
+    };
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithCapacity:0];
+    [params setInteger:pageNum forKey:@"pageNum"];
+    [params setInteger:pageSize forKey:@"pageSize"];
+    [params setObject:[AppHelper helper].loginUserInfo.username forKey:@"username"];
+    
+    [[AFHTTPRequestOperationManagerEx manager] POST:url
+                                         parameters:params
+                                            success:success
+                                            failure:failure];
+}
 
 
 /*

@@ -1,0 +1,34 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "5DEAD8B7DAAB6FF315B3B67D3E9ED8F716B8FD05",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "6fae9d69-1a42-0f01-5215-ce57b7db7bff++505" : {
+      "DVTSourceControlWorkingCopyRepositoryBranchesLocationKey" : "branches",
+      "DVTSourceControlWorkingCopyRepositoryTagsLocationKey" : "tags",
+      "DVTSourceControlWorkingCopyRepositoryPrimaryBranchLocationKey" : "trunk"
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "6fae9d69-1a42-0f01-5215-ce57b7db7bff++505" : 0,
+    "5DEAD8B7DAAB6FF315B3B67D3E9ED8F716B8FD05" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "B84193C5-1701-4761-B055-A310C1A97497",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "6fae9d69-1a42-0f01-5215-ce57b7db7bff++505" : "..\/..",
+    "5DEAD8B7DAAB6FF315B3B67D3E9ED8F716B8FD05" : "DDSY\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Workload",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Workload.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/13302221983\/DDSY.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5DEAD8B7DAAB6FF315B3B67D3E9ED8F716B8FD05"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/onevcat\/VVDocumenter-Xcode.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6fae9d69-1a42-0f01-5215-ce57b7db7bff++505"
+    }
+  ]
+}
