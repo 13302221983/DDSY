@@ -11,6 +11,8 @@
 #import "MdUserDetail.h"
 #import "MdPageInfo.h"
 #import "MdChargeItem.h"
+#import "MdConsumeItem.h"
+#import "MdOrderItem.h"
 
 @interface Ints : NSObject
 
@@ -22,15 +24,15 @@ AF_HTTP_REQUEST_SUCCESS success = ^(AFHTTPRequestOperation *operation, id respon
 {
     NSDictionary *result = [Functions dictionaryWithResponseObject:response];
     NSDictionary *header = [result dictionaryForKey:@"header"];
+    NSDictionary *body = [result dictionaryForKey:@"body"];
     NSString *errcode = [header stringForKey:@"errcode"];
     NSString *error = nil;
     if( [errcode isEqualToString:@"0000"] )
     {
-        NSDictionary *body = [result dictionaryForKey:@"body"];
     }
     else
     {
-        error = [header stringForKey:@"body"];
+        error = [header stringForKey:@"errmsg"];
     }
     if( block )
     {
@@ -58,8 +60,29 @@ NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithCapacity:0];
 
 + (void)getUserDetailWithBlock:(void(^)(NSString *error))block;
 
+
 typedef void (^CHARGE_LIST_BLK)(NSArray *items, MdPageInfo *page, NSString *error);
 
 + (void)getChargeListForPageNum:(NSInteger)pageNum PageSize:(NSInteger)pageSize block:(CHARGE_LIST_BLK)block;
+
+
+typedef void (^CONSUME_LIST_BLK)(NSArray *items, MdPageInfo *page, NSString *error);
+
++ (void)getConsumeListForPageNum:(NSInteger)pageNum PageSize:(NSInteger)pageSize block:(CONSUME_LIST_BLK)block;
+
+
+typedef void (^ORDER_LIST_BLK)(NSArray *items, MdPageInfo *page, NSString *error);
+
++ (void)getOrderListForPageNum:(NSInteger)pageNum PageSize:(NSInteger)pageSize block:(ORDER_LIST_BLK)block;
+
+
+typedef void (^CHANGE_MOBILE_BLK)(BOOL succeeded, NSString *error);
+
++ (void)changeToNewMobile:(NSString*)newMobile withVerifyCode:(NSString*)verifyCode block:(CHANGE_MOBILE_BLK)block;
+
+
+typedef void (^CHANGE_PASSWORD_BLK)(BOOL succeeded, NSString *error);
+
++ (void)changeToNewPassword:(NSString*)newPassword withVerifyCode:(NSString*)verifyCode block:(CHANGE_PASSWORD_BLK)block;
 
 @end

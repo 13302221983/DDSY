@@ -24,6 +24,8 @@
 		26A8CEF81D57106D00FDC3B5 /* AFJSONRequestSerializerEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A8CEF71D57106D00FDC3B5 /* AFJSONRequestSerializerEx.m */; };
 		26A8CEFB1D57648600FDC3B5 /* NSDictionary+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A8CEFA1D57648600FDC3B5 /* NSDictionary+Extension.m */; };
 		26A8CEFE1D57673000FDC3B5 /* MdLoginUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A8CEFD1D57673000FDC3B5 /* MdLoginUserInfo.m */; };
+		26F282831D59F40F008FADF6 /* MdConsumeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F282821D59F40F008FADF6 /* MdConsumeItem.m */; };
+		26F282B31D59F982008FADF6 /* MdOrderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F282B21D59F982008FADF6 /* MdOrderItem.m */; };
 		D01832151CEF497600863D1B /* UILoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D01832141CEF497600863D1B /* UILoginViewController.m */; };
 		D01832611CEF49CC00863D1B /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D01832191CEF49CC00863D1B /* AFHTTPRequestOperation.m */; };
 		D01832621CEF49CC00863D1B /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D018321B1CEF49CC00863D1B /* AFHTTPRequestOperationManager.m */; };
@@ -168,6 +170,10 @@
 		26A8CEFA1D57648600FDC3B5 /* NSDictionary+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Extension.m"; sourceTree = "<group>"; };
 		26A8CEFC1D57673000FDC3B5 /* MdLoginUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MdLoginUserInfo.h; sourceTree = "<group>"; };
 		26A8CEFD1D57673000FDC3B5 /* MdLoginUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MdLoginUserInfo.m; sourceTree = "<group>"; };
+		26F282811D59F40F008FADF6 /* MdConsumeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MdConsumeItem.h; sourceTree = "<group>"; };
+		26F282821D59F40F008FADF6 /* MdConsumeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MdConsumeItem.m; sourceTree = "<group>"; };
+		26F282B11D59F982008FADF6 /* MdOrderItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MdOrderItem.h; sourceTree = "<group>"; };
+		26F282B21D59F982008FADF6 /* MdOrderItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MdOrderItem.m; sourceTree = "<group>"; };
 		D01832131CEF497600863D1B /* UILoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILoginViewController.h; sourceTree = "<group>"; };
 		D01832141CEF497600863D1B /* UILoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILoginViewController.m; sourceTree = "<group>"; };
 		D01832181CEF49CC00863D1B /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -427,6 +433,10 @@
 				263494B31D58B1E900805B82 /* MdChargeItem.m */,
 				263494B51D58B33900805B82 /* MdPageInfo.h */,
 				263494B61D58B33900805B82 /* MdPageInfo.m */,
+				26F282811D59F40F008FADF6 /* MdConsumeItem.h */,
+				26F282821D59F40F008FADF6 /* MdConsumeItem.m */,
+				26F282B11D59F982008FADF6 /* MdOrderItem.h */,
+				26F282B21D59F982008FADF6 /* MdOrderItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -971,6 +981,7 @@
 				D01832611CEF49CC00863D1B /* AFHTTPRequestOperation.m in Sources */,
 				D018326E1CEF49CC00863D1B /* DDFileLogger.m in Sources */,
 				D01832711CEF49CC00863D1B /* DDContextFilterLogFormatter.m in Sources */,
+				26F282B31D59F982008FADF6 /* MdOrderItem.m in Sources */,
 				D06B63791CF9A52D00D4679D /* SDWebImageDownloaderOperation.m in Sources */,
 				D0CEBF681CE3440100808DDF /* AppDelegate.m in Sources */,
 				263494B41D58B1E900805B82 /* MdChargeItem.m in Sources */,
@@ -982,6 +993,7 @@
 				263494B11D58A7A800805B82 /* MdNation.m in Sources */,
 				D0FDE72C1D06C89B0096C41E /* MdCarInfo.m in Sources */,
 				D01832631CEF49CC00863D1B /* AFHTTPSessionManager.m in Sources */,
+				26F282831D59F40F008FADF6 /* MdConsumeItem.m in Sources */,
 				D01832771CEF49CC00863D1B /* MASLayoutConstraint.m in Sources */,
 				D0FDE72F1D06CB1B0096C41E /* UILocationSelectViewController.mm in Sources */,
 				26A8CEE21D5626B500FDC3B5 /* Ints.m in Sources */,

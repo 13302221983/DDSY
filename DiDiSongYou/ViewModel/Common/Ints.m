@@ -175,7 +175,9 @@
 
 
 
-+ (void)getChargeListForPageNum:(NSInteger)pageNum PageSize:(NSInteger)pageSize block:(CHARGE_LIST_BLK)block
++ (void)getChargeListForPageNum:(NSInteger)pageNum
+                       PageSize:(NSInteger)pageSize
+                          block:(CHARGE_LIST_BLK)block
 {
     NSString *page = @"/api/member/charge.do";
     NSString *url = [NSString stringWithFormat:@"%@%@", SERVER, page];
@@ -230,44 +232,62 @@
 }
 
 
-/*
- POST /api/member/consum.do
- 
- {
- "pageNum": 1,
- "pageSize": 10,
- "username": "gzOper"
- }
- 
- {
- "header": {
- "errcode": "0000",
- "errmsg": "操作成功"
- },
- "body": {
- "list": [
- {
- "consum_time": "2016-07-01 15:41:47",
- "consum_amount": "5000.00",
- "id": "1",
- "order_num": "26110882056503296"
- },
- {
- "consum_time": "2016-07-01 15:42:10",
- "consum_amount": "500.00",
- "id": "2",
- "order_num": "35208044984008704"
- }
- ],
- "pageNumber": 1,
- "pageSize": 10,
- "totalPage": 1,
- "totalRow": 2,
- "firstPage": true,
- "lastPage": true
- }
- }
- */
+
++ (void)getConsumeListForPageNum:(NSInteger)pageNum
+                        PageSize:(NSInteger)pageSize
+                           block:(CONSUME_LIST_BLK)block
+{
+    NSString *page = @"/api/member/consum.do";
+    NSString *url = [NSString stringWithFormat:@"%@%@", SERVER, page];
+    
+    AF_HTTP_REQUEST_SUCCESS success = ^(AFHTTPRequestOperation *operation, id response)
+    {
+        MdPageInfo *page;
+        NSMutableArray *items;
+        NSDictionary *result = [Functions dictionaryWithResponseObject:response];
+        NSDictionary *header = [result dictionaryForKey:@"header"];
+        NSString *errcode = [header stringForKey:@"errcode"];
+        NSString *error = nil;
+        if( [errcode isEqualToString:@"0000"] )
+        {
+            items = [[NSMutableArray alloc] initWithCapacity:0];
+            NSDictionary *body = [result dictionaryForKey:@"body"];
+            NSArray *list = [body arrayForKey:@"list"];
+            for( NSDictionary *consume in list )
+            {
+                [items addObject:[MdConsumeItem fromDictionary:consume]];
+            }
+            
+            page = [MdPageInfo fromDictionary:body];
+        }
+        else
+        {
+            error = [header stringForKey:@"errmsg"];
+        }
+        if( block )
+        {
+            block( items, page, error );
+        }
+    };
+    
+    AF_HTTP_REQUEST_FAILURE failure = ^(AFHTTPRequestOperation *operation, NSError *error)
+    {
+        if( block )
+        {
+            block( nil, nil, error.localizedDescription );
+        }
+    };
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithCapacity:0];
+    [params setInteger:pageNum forKey:@"pageNum"];
+    [params setInteger:pageSize forKey:@"pageSize"];
+    [params setObject:[AppHelper helper].loginUserInfo.username forKey:@"username"];
+    
+    [[AFHTTPRequestOperationManagerEx manager] POST:url
+                                         parameters:params
+                                            success:success
+                                            failure:failure];
+}
 
 
 /*
@@ -313,115 +333,157 @@
 
 
 
-/*
- POST /api/order/list.do
- 
- {
- "pageNum": 1,
- "pageSize": 10,
- "username": "gzOper"
- }
- 
- {
- "header": {
- "errcode": "0000",
- "errmsg": "操作成功"
- },
- "body": {
- "list": [
- {
- "driver_name": "林师傅",
- "notes": "尽快来",
- "dispath_time": null,
- "driver_mobile": "13800138001",
- "vehicle_license": "粤A88888",
- "id": "26036324846796801",
- "order_num": "26036324846796800",
- "order_time": "2016-07-04 00:00:00",
- "fuel_card_no": "123456789",
- "status": "取消"
- },
- {
- "driver_name": "林师傅",
- "notes": null,
- "dispath_time": null,
- "driver_mobile": "13800138001",
- "vehicle_license": "粤A88888",
- "id": "26110882056503297",
- "order_num": "26110882056503296",
- "order_time": "2016-07-04 15:35:19",
- "fuel_card_no": "123456789",
- "status": "已下单"
- },
- {
- "driver_name": "林师傅",
- "notes": null,
- "dispath_time": null,
- "driver_mobile": "13800138001",
- "vehicle_license": "粤Z88888",
- "id": "35208044988203008",
- "order_num": "35208044984008704",
- "order_time": "2016-07-29 18:04:12",
- "fuel_card_no": "4545454545",
- "status": "已下单"
- }
- ],
- "pageNumber": 1,
- "pageSize": 10,
- "totalPage": 1,
- "totalRow": 3,
- "firstPage": true,
- "lastPage": true
- }
- }
- */
 
 
+//============
++ (void)getOrderListForPageNum:(NSInteger)pageNum PageSize:(NSInteger)pageSize block:(ORDER_LIST_BLK)block
+{
+    NSString *page = @"/api/order/list.do";
+    NSString *url = [NSString stringWithFormat:@"%@%@", SERVER, page];
+    
+    AF_HTTP_REQUEST_SUCCESS success = ^(AFHTTPRequestOperation *operation, id response)
+    {
+        MdPageInfo *page;
+        NSMutableArray *items;
+        NSDictionary *result = [Functions dictionaryWithResponseObject:response];
+        NSDictionary *header = [result dictionaryForKey:@"header"];
+        NSString *errcode = [header stringForKey:@"errcode"];
+        NSString *error = nil;
+        if( [errcode isEqualToString:@"0000"] )
+        {
+            items = [[NSMutableArray alloc] initWithCapacity:0];
+            NSDictionary *body = [result dictionaryForKey:@"body"];
+            NSArray *list = [body arrayForKey:@"list"];
+            for( NSDictionary *order in list )
+            {
+                [items addObject:[MdOrderItem fromDictionary:order]];
+            }
+            
+            page = [MdPageInfo fromDictionary:body];
+        }
+        else
+        {
+            error = [header stringForKey:@"errmsg"];
+        }
+        if( block )
+        {
+            block( items, page, error );
+        }
+    };
+    
+    AF_HTTP_REQUEST_FAILURE failure = ^(AFHTTPRequestOperation *operation, NSError *error)
+    {
+        if( block )
+        {
+            block( nil, nil, error.localizedDescription );
+        }
+    };
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithCapacity:0];
+    [params setInteger:pageNum forKey:@"pageNum"];
+    [params setInteger:pageSize forKey:@"pageSize"];
+    [params setObject:[AppHelper helper].loginUserInfo.username forKey:@"username"];
+    
+    [[AFHTTPRequestOperationManagerEx manager] POST:url
+                                         parameters:params
+                                            success:success
+                                            failure:failure];
+}
 
-/*
- POST /api/user/modify-mobile.do
- 
- {
- "mobile": "13300001111",
- "newMobile": "13311110000",
- "username": "gzOper",
- "verifyCode": "x123"
- }
- 
- {
- "header": {
- "errcode": "0012",
- "errmsg": "参数错误"
- },
- "body": {
- "result_desc": "旧手机号码不正确！"
- }
- }
- */
+
++ (void)changeToNewMobile:(NSString *)newMobile withVerifyCode:(NSString *)verifyCode block:(CHANGE_MOBILE_BLK)block
+{
+    NSString *page = @"/api/user/modify-mobile.do";
+    NSString *url = [NSString stringWithFormat:@"%@%@", SERVER, page];
+    
+    AF_HTTP_REQUEST_SUCCESS success = ^(AFHTTPRequestOperation *operation, id response)
+    {
+        BOOL succeeded = NO;
+        NSDictionary *result = [Functions dictionaryWithResponseObject:response];
+        NSDictionary *header = [result dictionaryForKey:@"header"];
+        NSDictionary *body = [result dictionaryForKey:@"body"];
+        NSString *errcode = [header stringForKey:@"errcode"];
+        NSString *error = nil;
+        if( [errcode isEqualToString:@"0000"] )
+        {
+            succeeded = YES;
+        }
+        else
+        {
+            error = [body stringForKey:@"result_desc"];
+        }
+        if( block )
+        {
+            block( succeeded, error );
+        }
+    };
+    
+    AF_HTTP_REQUEST_FAILURE failure = ^(AFHTTPRequestOperation *operation, NSError *error)
+    {
+        if( block )
+        {
+            block( NO, error.localizedDescription );
+        }
+    };
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithCapacity:0];
+    [params setObject:[AppHelper helper].loginUserInfo.mobile forKey:@"mobile"];
+    [params setObject:[AppHelper helper].loginUserInfo.username forKey:@"username"];
+    [params setObject:newMobile forKey:@"newMobile"];
+    [params setObject:verifyCode forKey:@"verifyCode"];
+    
+    [[AFHTTPRequestOperationManagerEx manager] POST:url
+                                         parameters:params
+                                            success:success
+                                            failure:failure];
+}
 
 
-
-
-
-/*
-  /api/user/modify-password.do
- 
- {
- "mobile": "13300001111",
- "newPassword": "wxiekek",
- "username": "gzOper",
- "verifyCode": "111xxx"
- }
- 
- {
- "header": {
- "errcode": "0012",
- "errmsg": "参数错误"
- },
- "body": {
- "result_desc": "手机号码不正确！"
- }
- }
- */
++ (void)changeToNewPassword:(NSString *)newPassword withVerifyCode:(NSString *)verifyCode block:(CHANGE_PASSWORD_BLK)block
+{
+    NSString *page = @"/api/user/modify-password.do";
+    NSString *url = [NSString stringWithFormat:@"%@%@", SERVER, page];
+    
+    AF_HTTP_REQUEST_SUCCESS success = ^(AFHTTPRequestOperation *operation, id response)
+    {
+        BOOL succeeded = NO;
+        NSDictionary *result = [Functions dictionaryWithResponseObject:response];
+        NSDictionary *header = [result dictionaryForKey:@"header"];
+        NSDictionary *body = [result dictionaryForKey:@"body"];
+        NSString *errcode = [header stringForKey:@"errcode"];
+        NSString *error = nil;
+        if( [errcode isEqualToString:@"0000"] )
+        {
+            succeeded = YES;
+        }
+        else
+        {
+            error = [body stringForKey:@"result_desc"];
+        }
+        if( block )
+        {
+            block( succeeded, error );
+        }
+    };
+    
+    AF_HTTP_REQUEST_FAILURE failure = ^(AFHTTPRequestOperation *operation, NSError *error)
+    {
+        if( block )
+        {
+            block( NO, error.localizedDescription );
+        }
+    };
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithCapacity:0];
+    [params setObject:[AppHelper helper].loginUserInfo.mobile forKey:@"mobile"];
+    [params setObject:[AppHelper helper].loginUserInfo.username forKey:@"username"];
+    [params setObject:newPassword forKey:@"newPassword"];
+    [params setObject:verifyCode forKey:@"verifyCode"];
+    
+    [[AFHTTPRequestOperationManagerEx manager] POST:url
+                                         parameters:params
+                                            success:success
+                                            failure:failure];
+}
 
 @end
