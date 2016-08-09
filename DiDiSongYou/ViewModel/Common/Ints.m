@@ -333,6 +333,42 @@
 
 
 
+/*
+http://210.14.132.115/api/order/detail.do
+
+{
+  "orderNum": "26036324846796800"
+}
+
+{
+  "header": {
+    "errcode": "0000",
+    "errmsg": "操作成功"
+  },
+  "body": {
+    "notes": "",
+    "fuel_name": "",
+    "driver_mobile": "13800138001",
+    "fuel_time": null,
+    "vehicle_license": "",
+    "real_name": "",
+    "order_time": "2016-07-04 00:00:00",
+    "fuel_consum": "0.00",
+    "member_account": "5556666",
+    "driver_name": "",
+    "member_unit": "7.00",
+    "dispath_time": null,
+    "fuel_amount": "0.00",
+    "id": "26036324846796801",
+    "order_num": "26036324846796800",
+    "fuel_card_no": "123456789",
+    "status": "取消"
+  }
+}
+*/
+
+
+
 
 
 //============
@@ -486,4 +522,70 @@
                                             failure:failure];
 }
 
+/*
+/api/member/vehicle.do
+
+{
+  "pageNum": 1,
+  "pageSize": 10,
+  "username": "gzOper"
+}
+
+{
+  "header": {
+    "errcode": "0000",
+    "errmsg": "操作成功"
+  },
+  "body": {
+    "list": [
+      {
+        "creator": "199024123456",
+        "notes": null,
+        "vehicle_license": "",
+        "vehicle_type": "",
+        "fuel_tank_capacity": "65.00",
+        "belong_type": "",
+        "engine_no": "DHJ5522133",
+        "vin": "EFD559854146",
+        "created_date": "2016-07-27 13:52:20",
+        "id": "34419884679102464",
+        "annual_ave_fuel_comsum": "656.00",
+        "engine_capacity": "",
+        "fuel_card_no": "54545454",
+        "brand_model": "",
+        "status": ""
+      }
+    ],
+    "pageNumber": 1,
+    "pageSize": 10,
+    "totalPage": 1,
+    "totalRow": 2,
+    "firstPage": true,
+    "lastPage": true
+  }
+}
+*/
+
+
+/*
+http://210.14.132.115/api/member/vehicle/report-location.do
+
+{
+  "latitude": "23.14323",
+  "location": "gz",
+  "longitude": "123.1235",
+  "region": "gz",
+  "vehicleId": "34432058449330176"
+}
+
+{
+  "header": {
+    "errcode": "0000",
+    "errmsg": "操作成功"
+  },
+  "body": {
+    "result_desc": "SUCCESS"
+  }
+}
+*/
 @end
