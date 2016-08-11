@@ -24,6 +24,7 @@
 		26A8CEF81D57106D00FDC3B5 /* AFJSONRequestSerializerEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A8CEF71D57106D00FDC3B5 /* AFJSONRequestSerializerEx.m */; };
 		26A8CEFB1D57648600FDC3B5 /* NSDictionary+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A8CEFA1D57648600FDC3B5 /* NSDictionary+Extension.m */; };
 		26A8CEFE1D57673000FDC3B5 /* MdLoginUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A8CEFD1D57673000FDC3B5 /* MdLoginUserInfo.m */; };
+		26E6AC361D5CA49F00C449D1 /* MdVehicle.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E6AC351D5CA49F00C449D1 /* MdVehicle.m */; };
 		26F282831D59F40F008FADF6 /* MdConsumeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F282821D59F40F008FADF6 /* MdConsumeItem.m */; };
 		26F282B31D59F982008FADF6 /* MdOrderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F282B21D59F982008FADF6 /* MdOrderItem.m */; };
 		D01832151CEF497600863D1B /* UILoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D01832141CEF497600863D1B /* UILoginViewController.m */; };
@@ -170,6 +171,8 @@
 		26A8CEFA1D57648600FDC3B5 /* NSDictionary+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Extension.m"; sourceTree = "<group>"; };
 		26A8CEFC1D57673000FDC3B5 /* MdLoginUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MdLoginUserInfo.h; sourceTree = "<group>"; };
 		26A8CEFD1D57673000FDC3B5 /* MdLoginUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MdLoginUserInfo.m; sourceTree = "<group>"; };
+		26E6AC341D5CA49F00C449D1 /* MdVehicle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MdVehicle.h; sourceTree = "<group>"; };
+		26E6AC351D5CA49F00C449D1 /* MdVehicle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MdVehicle.m; sourceTree = "<group>"; };
 		26F282811D59F40F008FADF6 /* MdConsumeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MdConsumeItem.h; sourceTree = "<group>"; };
 		26F282821D59F40F008FADF6 /* MdConsumeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MdConsumeItem.m; sourceTree = "<group>"; };
 		26F282B11D59F982008FADF6 /* MdOrderItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MdOrderItem.h; sourceTree = "<group>"; };
@@ -437,6 +440,8 @@
 				26F282821D59F40F008FADF6 /* MdConsumeItem.m */,
 				26F282B11D59F982008FADF6 /* MdOrderItem.h */,
 				26F282B21D59F982008FADF6 /* MdOrderItem.m */,
+				26E6AC341D5CA49F00C449D1 /* MdVehicle.h */,
+				26E6AC351D5CA49F00C449D1 /* MdVehicle.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1007,6 +1012,7 @@
 				D0EFBBB61D101D3C0050A2D5 /* UIOrderDetailViewController.m in Sources */,
 				D018326C1CEF49CC00863D1B /* DDASLLogCapture.m in Sources */,
 				D018326D1CEF49CC00863D1B /* DDASLLogger.m in Sources */,
+				26E6AC361D5CA49F00C449D1 /* MdVehicle.m in Sources */,
 				D0EFBBA51D0FFEB60050A2D5 /* TestLoad.m in Sources */,
 				D01832641CEF49CC00863D1B /* AFNetworkReachabilityManager.m in Sources */,
 				D06B637C1CF9A52D00D4679D /* UIButton+WebCache.m in Sources */,
