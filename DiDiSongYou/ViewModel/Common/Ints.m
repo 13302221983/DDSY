@@ -522,50 +522,62 @@ http://210.14.132.115/api/order/detail.do
                                             failure:failure];
 }
 
-/*
-/api/member/vehicle.do
-
++ (void)getVehiclesWithPageNum:(NSInteger)pageNum
+                      pageSize:(NSInteger)pageSize
+                         block:(VEHICLES_BLK)block
 {
-  "pageNum": 1,
-  "pageSize": 10,
-  "username": "gzOper"
-}
+    NSString *page = @"/api/member/vehicle.do";
+    NSString *url = [NSString stringWithFormat:@"%@%@", SERVER, page];
+    
+    AF_HTTP_REQUEST_SUCCESS success = ^(AFHTTPRequestOperation *operation, id response)
+    {
+        NSDictionary *result = [Functions dictionaryWithResponseObject:response];
+        NSDictionary *header = [result dictionaryForKey:@"header"];
+        NSDictionary *body = [result dictionaryForKey:@"body"];
+        NSString *errcode = [header stringForKey:@"errcode"];
+        NSString *error = nil;
+        MdPageInfo *page;
+        NSMutableArray *vehicles;
+        if( [errcode isEqualToString:@"0000"] )
+        {
+            vehicles = [[NSMutableArray alloc] initWithCapacity:0];
+            NSArray *list = [body arrayForKey:@"list"];
+            for( NSDictionary *item in list )
+            {
+                [vehicles addObject:[MdVehicle fromDictionary:item]];
+            }
+            
+            page = [MdPageInfo fromDictionary:body];
+        }
+        else
+        {
+            error = [header stringForKey:@"errmsg"];
+        }
+        if( block )
+        {
+            block( vehicles, page, error );
+        }
+    };
+    
+    AF_HTTP_REQUEST_FAILURE failure = ^(AFHTTPRequestOperation *operation, NSError *error)
+    {
+        if( block )
+        {
+            block( nil, nil, error.localizedDescription );
+        }
+    };
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithCapacity:0];
+    [params setInteger:pageSize forKey:@"pageSize"];
+    [params setInteger:pageNum forKey:@"pageNum"];
+    [params setObject:[AppHelper helper].loginUserInfo.username forKey:@"username"];
+    
+    [[AFHTTPRequestOperationManagerEx manager] POST:url
+                                         parameters:params
+                                            success:success
+                                            failure:failure];
 
-{
-  "header": {
-    "errcode": "0000",
-    "errmsg": "操作成功"
-  },
-  "body": {
-    "list": [
-      {
-        "creator": "199024123456",
-        "notes": null,
-        "vehicle_license": "",
-        "vehicle_type": "",
-        "fuel_tank_capacity": "65.00",
-        "belong_type": "",
-        "engine_no": "DHJ5522133",
-        "vin": "EFD559854146",
-        "created_date": "2016-07-27 13:52:20",
-        "id": "34419884679102464",
-        "annual_ave_fuel_comsum": "656.00",
-        "engine_capacity": "",
-        "fuel_card_no": "54545454",
-        "brand_model": "",
-        "status": ""
-      }
-    ],
-    "pageNumber": 1,
-    "pageSize": 10,
-    "totalPage": 1,
-    "totalRow": 2,
-    "firstPage": true,
-    "lastPage": true
-  }
 }
-*/
-
 
 /*
 http://210.14.132.115/api/member/vehicle/report-location.do

@@ -13,6 +13,7 @@
 #import "MdChargeItem.h"
 #import "MdConsumeItem.h"
 #import "MdOrderItem.h"
+#import "MdVehicle.h"
 
 @interface Ints : NSObject
 
@@ -84,5 +85,10 @@ typedef void (^CHANGE_MOBILE_BLK)(BOOL succeeded, NSString *error);
 typedef void (^CHANGE_PASSWORD_BLK)(BOOL succeeded, NSString *error);
 
 + (void)changeToNewPassword:(NSString*)newPassword withVerifyCode:(NSString*)verifyCode block:(CHANGE_PASSWORD_BLK)block;
+
+
+typedef void(^VEHICLES_BLK)(NSArray *items, MdPageInfo *page, NSString *error);
+
++ (void)getVehiclesWithPageNum:(NSInteger)pageNum pageSize:(NSInteger)pageSize block:(VEHICLES_BLK)block;
 
 @end
