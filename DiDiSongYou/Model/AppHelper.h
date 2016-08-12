@@ -15,6 +15,16 @@
 @property (nonatomic, copy) MdLoginUserInfo *loginUserInfo;
 
 
+@property (nonatomic, copy) NSString *latitude;
+
+@property (nonatomic, copy) NSString *longitude;
+
+@property (nonatomic, copy) NSString *location;
+
+@property (nonatomic, copy) NSString *region;
+
+@property (nonatomic, copy) NSString *currentVehicleId;
+
 
 + (instancetype)helper;
 

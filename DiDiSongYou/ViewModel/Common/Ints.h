@@ -57,38 +57,57 @@ NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithCapacity:0];
                                         failure:failure];
 */
 
-+ (void)loginAccount:(NSString*)account password:(NSString*)password block:(void(^)(NSString *error))block;
++ (void)loginAccount:(NSString*)account
+            password:(NSString*)password
+               block:(void(^)(NSString *error))block;
 
 + (void)getUserDetailWithBlock:(void(^)(NSString *error))block;
 
 
 typedef void (^CHARGE_LIST_BLK)(NSArray *items, MdPageInfo *page, NSString *error);
 
-+ (void)getChargeListForPageNum:(NSInteger)pageNum PageSize:(NSInteger)pageSize block:(CHARGE_LIST_BLK)block;
++ (void)getChargeListForPageNum:(NSInteger)pageNum
+                       PageSize:(NSInteger)pageSize
+                          block:(CHARGE_LIST_BLK)block;
 
 
 typedef void (^CONSUME_LIST_BLK)(NSArray *items, MdPageInfo *page, NSString *error);
 
-+ (void)getConsumeListForPageNum:(NSInteger)pageNum PageSize:(NSInteger)pageSize block:(CONSUME_LIST_BLK)block;
++ (void)getConsumeListForPageNum:(NSInteger)pageNum
+                        PageSize:(NSInteger)pageSize
+                           block:(CONSUME_LIST_BLK)block;
 
 
 typedef void (^ORDER_LIST_BLK)(NSArray *items, MdPageInfo *page, NSString *error);
 
-+ (void)getOrderListForPageNum:(NSInteger)pageNum PageSize:(NSInteger)pageSize block:(ORDER_LIST_BLK)block;
++ (void)getOrderListForPageNum:(NSInteger)pageNum
+                      PageSize:(NSInteger)pageSize
+                         block:(ORDER_LIST_BLK)block;
 
 
 typedef void (^CHANGE_MOBILE_BLK)(BOOL succeeded, NSString *error);
 
-+ (void)changeToNewMobile:(NSString*)newMobile withVerifyCode:(NSString*)verifyCode block:(CHANGE_MOBILE_BLK)block;
++ (void)changeToNewMobile:(NSString*)newMobile
+           withVerifyCode:(NSString*)verifyCode
+                    block:(CHANGE_MOBILE_BLK)block;
 
 
 typedef void (^CHANGE_PASSWORD_BLK)(BOOL succeeded, NSString *error);
 
-+ (void)changeToNewPassword:(NSString*)newPassword withVerifyCode:(NSString*)verifyCode block:(CHANGE_PASSWORD_BLK)block;
++ (void)changeToNewPassword:(NSString*)newPassword
+             withVerifyCode:(NSString*)verifyCode
+                      block:(CHANGE_PASSWORD_BLK)block;
 
 
 typedef void(^VEHICLES_BLK)(NSArray *items, MdPageInfo *page, NSString *error);
 
-+ (void)getVehiclesWithPageNum:(NSInteger)pageNum pageSize:(NSInteger)pageSize block:(VEHICLES_BLK)block;
++ (void)getVehiclesWithPageNum:(NSInteger)pageNum
+                      pageSize:(NSInteger)pageSize
+                         block:(VEHICLES_BLK)block;
+
+
+typedef void (^OPER_BLK)(BOOL succeeded, NSString *error);
+
++ (void)reportLocationWithBlock:(OPER_BLK)block;
 
 @end

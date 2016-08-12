@@ -475,7 +475,9 @@ http://210.14.132.115/api/order/detail.do
 }
 
 
-+ (void)changeToNewPassword:(NSString *)newPassword withVerifyCode:(NSString *)verifyCode block:(CHANGE_PASSWORD_BLK)block
++ (void)changeToNewPassword:(NSString *)newPassword
+             withVerifyCode:(NSString *)verifyCode
+                      block:(CHANGE_PASSWORD_BLK)block
 {
     NSString *page = @"/api/user/modify-password.do";
     NSString *url = [NSString stringWithFormat:@"%@%@", SERVER, page];
@@ -521,6 +523,9 @@ http://210.14.132.115/api/order/detail.do
                                             success:success
                                             failure:failure];
 }
+
+
+
 
 + (void)getVehiclesWithPageNum:(NSInteger)pageNum
                       pageSize:(NSInteger)pageSize
@@ -579,25 +584,53 @@ http://210.14.132.115/api/order/detail.do
 
 }
 
-/*
-http://210.14.132.115/api/member/vehicle/report-location.do
-
++ (void)reportLocationWithBlock:(OPER_BLK)block
 {
-  "latitude": "23.14323",
-  "location": "gz",
-  "longitude": "123.1235",
-  "region": "gz",
-  "vehicleId": "34432058449330176"
+    NSString *page = @"/api/member/vehicle/report-location.do";
+    NSString *url = [NSString stringWithFormat:@"%@%@", SERVER, page];
+    
+    AF_HTTP_REQUEST_SUCCESS success = ^(AFHTTPRequestOperation *operation, id response)
+    {
+        NSDictionary *result = [Functions dictionaryWithResponseObject:response];
+        NSDictionary *header = [result dictionaryForKey:@"header"];
+//        NSDictionary *body = [result dictionaryForKey:@"body"];
+        NSString *errcode = [header stringForKey:@"errcode"];
+        NSString *error = nil;
+        BOOL succeeded = NO;
+        if( [errcode isEqualToString:@"0000"] )
+        {
+            succeeded = YES;
+        }
+        else
+        {
+            error = [header stringForKey:@"errmsg"];
+        }
+        if( block )
+        {
+            block( succeeded, error );
+        }
+    };
+    
+    AF_HTTP_REQUEST_FAILURE failure = ^(AFHTTPRequestOperation *operation, NSError *error)
+    {
+        if( block )
+        {
+            block( NO, error.localizedDescription );
+        }
+    };
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithCapacity:0];
+    [params setObject:[AppHelper helper].latitude forKey:@"latitude"];
+    [params setObject:[AppHelper helper].location forKey:@"location"];
+    [params setObject:[AppHelper helper].longitude forKey:@"longitude"];
+    [params setObject:[AppHelper helper].region forKey:@"region"];
+    [params setObject:[AppHelper helper].currentVehicleId forKey:@"vehicleId"];
+    
+    [[AFHTTPRequestOperationManagerEx manager] POST:url
+                                         parameters:params
+                                            success:success
+                                            failure:failure];
 }
 
-{
-  "header": {
-    "errcode": "0000",
-    "errmsg": "操作成功"
-  },
-  "body": {
-    "result_desc": "SUCCESS"
-  }
-}
-*/
+
 @end
