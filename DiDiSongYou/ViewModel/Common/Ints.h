@@ -14,6 +14,7 @@
 #import "MdConsumeItem.h"
 #import "MdOrderItem.h"
 #import "MdVehicle.h"
+#import "MdOrderDetail.h"
 
 @interface Ints : NSObject
 
@@ -109,5 +110,11 @@ typedef void(^VEHICLES_BLK)(NSArray *items, MdPageInfo *page, NSString *error);
 typedef void (^OPER_BLK)(BOOL succeeded, NSString *error);
 
 + (void)reportLocationWithBlock:(OPER_BLK)block;
+
+
+
+typedef void (^OrderDetailBlk)(MdOrderDetail *detail, NSString *error);
+
++ (void)getOrderDetail:(NSString*)orderNum block:(OrderDetailBlk)block;
 
 @end

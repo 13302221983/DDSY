@@ -330,49 +330,58 @@
  }
  
  */
+//================
 
 
 
-/*
-http://210.14.132.115/api/order/detail.do
-
++ (void)getOrderDetail:(NSString *)orderNum block:(OrderDetailBlk)block
 {
-  "orderNum": "26036324846796800"
+    NSString *page = @"/api/order/detail.do";
+    NSString *url = [NSString stringWithFormat:@"%@%@", SERVER, page];
+    
+    AF_HTTP_REQUEST_SUCCESS success = ^(AFHTTPRequestOperation *operation, id response)
+    {
+        NSDictionary *result = [Functions dictionaryWithResponseObject:response];
+        NSDictionary *header = [result dictionaryForKey:@"header"];
+        NSDictionary *body = [result dictionaryForKey:@"body"];
+        NSString *errcode = [header stringForKey:@"errcode"];
+        NSString *error = [header stringForKey:@"errmsg"];
+        MdOrderDetail *detail;
+        if( [errcode isEqualToString:@"0000"] )
+        {
+            detail = [MdOrderDetail fromDictionary:body];
+        }
+        else
+        {
+            error = [header stringForKey:@"errmsg"];
+        }
+        if( block )
+        {
+            block( detail, error );
+        }
+    };
+    
+    AF_HTTP_REQUEST_FAILURE failure = ^(AFHTTPRequestOperation *operation, NSError *error)
+    {
+        if( block )
+        {
+            block( nil, error.localizedDescription );
+        }
+    };
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithCapacity:0];
+    
+    [[AFHTTPRequestOperationManagerEx manager] POST:url
+                                         parameters:params
+                                            success:success
+                                            failure:failure];
 }
 
-{
-  "header": {
-    "errcode": "0000",
-    "errmsg": "操作成功"
-  },
-  "body": {
-    "notes": "",
-    "fuel_name": "",
-    "driver_mobile": "13800138001",
-    "fuel_time": null,
-    "vehicle_license": "",
-    "real_name": "",
-    "order_time": "2016-07-04 00:00:00",
-    "fuel_consum": "0.00",
-    "member_account": "5556666",
-    "driver_name": "",
-    "member_unit": "7.00",
-    "dispath_time": null,
-    "fuel_amount": "0.00",
-    "id": "26036324846796801",
-    "order_num": "26036324846796800",
-    "fuel_card_no": "123456789",
-    "status": "取消"
-  }
-}
-*/
 
 
-
-
-
-//============
-+ (void)getOrderListForPageNum:(NSInteger)pageNum PageSize:(NSInteger)pageSize block:(ORDER_LIST_BLK)block
++ (void)getOrderListForPageNum:(NSInteger)pageNum
+                      PageSize:(NSInteger)pageSize
+                         block:(ORDER_LIST_BLK)block
 {
     NSString *page = @"/api/order/list.do";
     NSString *url = [NSString stringWithFormat:@"%@%@", SERVER, page];
@@ -427,7 +436,9 @@ http://210.14.132.115/api/order/detail.do
 }
 
 
-+ (void)changeToNewMobile:(NSString *)newMobile withVerifyCode:(NSString *)verifyCode block:(CHANGE_MOBILE_BLK)block
++ (void)changeToNewMobile:(NSString *)newMobile
+           withVerifyCode:(NSString *)verifyCode
+                    block:(CHANGE_MOBILE_BLK)block
 {
     NSString *page = @"/api/user/modify-mobile.do";
     NSString *url = [NSString stringWithFormat:@"%@%@", SERVER, page];
@@ -593,7 +604,6 @@ http://210.14.132.115/api/order/detail.do
     {
         NSDictionary *result = [Functions dictionaryWithResponseObject:response];
         NSDictionary *header = [result dictionaryForKey:@"header"];
-//        NSDictionary *body = [result dictionaryForKey:@"body"];
         NSString *errcode = [header stringForKey:@"errcode"];
         NSString *error = nil;
         BOOL succeeded = NO;

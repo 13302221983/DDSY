@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		260FFD2A1D76F415007A3865 /* MdOrderDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 260FFD291D76F415007A3865 /* MdOrderDetail.m */; };
 		263494A51D58A34000805B82 /* AppHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 263494A41D58A34000805B82 /* AppHelper.m */; };
 		263494A81D58A64A00805B82 /* MdUserDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 263494A71D58A64A00805B82 /* MdUserDetail.m */; };
 		263494AB1D58A69200805B82 /* MdMemberLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 263494AA1D58A69200805B82 /* MdMemberLevel.m */; };
@@ -136,6 +137,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		260FFD281D76F415007A3865 /* MdOrderDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MdOrderDetail.h; sourceTree = "<group>"; };
+		260FFD291D76F415007A3865 /* MdOrderDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MdOrderDetail.m; sourceTree = "<group>"; };
 		263494A31D58A34000805B82 /* AppHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppHelper.h; sourceTree = "<group>"; };
 		263494A41D58A34000805B82 /* AppHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppHelper.m; sourceTree = "<group>"; };
 		263494A61D58A64A00805B82 /* MdUserDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MdUserDetail.h; sourceTree = "<group>"; };
@@ -442,6 +445,8 @@
 				26F282B21D59F982008FADF6 /* MdOrderItem.m */,
 				26E6AC341D5CA49F00C449D1 /* MdVehicle.h */,
 				26E6AC351D5CA49F00C449D1 /* MdVehicle.m */,
+				260FFD281D76F415007A3865 /* MdOrderDetail.h */,
+				260FFD291D76F415007A3865 /* MdOrderDetail.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -961,6 +966,7 @@
 				D01832651CEF49CC00863D1B /* AFSecurityPolicy.m in Sources */,
 				D0FDE7251D06C4BB0096C41E /* UITipView.m in Sources */,
 				D07E24F41D01745A0005FBFB /* UIMyMessageViewController.m in Sources */,
+				260FFD2A1D76F415007A3865 /* MdOrderDetail.m in Sources */,
 				D0FDE71C1D06B9140096C41E /* MdFont.m in Sources */,
 				D0CEBF6B1CE3440100808DDF /* ViewController.m in Sources */,
 				D01832741CEF49CC00863D1B /* MASCompositeConstraint.m in Sources */,
